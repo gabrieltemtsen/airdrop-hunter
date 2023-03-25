@@ -4,7 +4,7 @@ require("dotenv").config()
 
 const IERC20 = require('@openzeppelin/contracts/build/contracts/ERC20.json')
 
-const main = async function (event, context) {
+const handler = async function (event, context) {
   console.log("Received event:", event);
   const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL)
 
@@ -25,4 +25,4 @@ const main = async function (event, context) {
   }
 }
 
-exports.main = schedule("@daily", main)
+exports.handler = schedule("@daily", handler)

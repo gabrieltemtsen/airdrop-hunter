@@ -4,7 +4,7 @@ require("dotenv").config()
 
 const IUniswapV2Router02 = require('@uniswap/v2-periphery/build/IUniswapV2Router02.json')
 
-const main = async function (event, context) {
+const handler = async function (event, context) {
   console.log("Received event:", event);
 
   const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL)
@@ -32,4 +32,4 @@ const main = async function (event, context) {
   }
 }
 
-exports.main = schedule("@daily", main)
+exports.handler = schedule("@daily", handler)
